@@ -1,0 +1,56 @@
+<div id="login_page">
+	<!-- Boîte de connexion -->
+	<form class="form-login" id="loginBox">
+		<h2 class="form-login-heading">Authentification</h2>
+		<div class="login-wrap">
+			<div id="notificationLogin" class="alert alert-danger"></div>
+			<input name="pseudo" type="text" class="form-control" placeholder="Pseudo" > <br> 
+			<input name="mdp" type="password" class="form-control" placeholder="*******">
+			<br>
+			<button id="connexion" class="btn btn-theme btn-block">
+				<i class="fa fa-lock"></i> CONNEXION
+			</button>
+		</div>
+	</form>
+	<!-- Fin de boîte de connexion -->
+
+	<!-- Boîte d'inscription -->
+	<form class="form-login" id="registerBox">
+		<h2 class="form-login-heading">Inscription</h2>
+		<div class="login-wrap">
+			<div id="notificationRegister" class="alert alert-danger"></div>
+			<input type="text" class="form-control" placeholder="Pseudo" name="pseudo"><br> 
+			<input type="text" class="form-control" placeholder="Nom" name="nom"><br>
+			<input type="text" class="form-control" placeholder="Prénom" name="prenom"><br>
+			<input type="text" class="form-control" placeholder="Email" name="email"> <br> <input type="password" 
+			class="form-control" placeholder="Mot de passe" name="mdp"><br>
+			<input type="password" class="form-control" placeholder="Confirmation mot de passe" name="confirmerMdp"><br>
+			<button id="inscription" class="btn btn-theme btn-block">INSCRIPTION</button>
+		</div>
+		<div id="infobox-wrapper"><div class="fleche-box"></div><div  class="infobox"></div></div>
+	</form>
+	
+	<!-- Fin de boîte d'inscription -->
+
+	<!-- Boite de connexion reussie -->
+	<div id="connexion_reussie">
+		<div class="container">
+			<form class="form-login">
+				<h2 class="form-login-heading">Connexion réussie</h2>
+				<div class="login-wrap">
+					<div class="row">
+						<div class="col-md-3 col-md-offset-3">
+							<img src="/theme/img/loading.gif" alt="chargement" height="100px" />
+						</div>
+					</div>
+
+					<div class="row">
+						<h5 style="text-align: center;">Redirection vers l'accueil du
+							site...</h5>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- Fin Boite de connexion reussie -->
+</div>

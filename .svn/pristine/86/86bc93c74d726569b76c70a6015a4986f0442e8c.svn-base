@@ -1,0 +1,237 @@
+###############################################################
+##########################Log4j################################
+###############################################################
+log4j.rootLogger=DEBUG, console, reportsLog
+
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=[%-5p] %d [%c] - %m%n
+log4j.appender.console.ImmediateFlush=true
+#log4j.appender.console.Threshold=DEBUG
+
+log4j.appender.debugLog=org.apache.log4j.RollingFileAppender
+log4j.appender.debugLog.File=logs/debug.log
+log4j.appender.debugLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.debugLog.layout.ConversionPattern=[%-5p] %d [%M]->[%C] - %m%n
+log4j.appender.debugLog.Append=false
+log4j.appender.debugLog.MaxFileSize=100MB
+log4j.appender.debugLog.MaxBackupIndex=7
+log4j.appender.debugLog.ImmediateFlush=true
+
+log4j.appender.reportsLog=org.apache.log4j.RollingFileAppender
+log4j.appender.reportsLog.File=logs/reports.log
+log4j.appender.reportsLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.reportsLog.layout.ConversionPattern=[%-5p] %d [%C] - %m%n
+log4j.appender.reportsLog.Append=false
+log4j.appender.reportsLog.MaxFileSize=100MB
+log4j.appender.reportsLog.MaxBackupIndex=7
+log4j.appender.reportsLog.ImmediateFlush=true
+
+log4j.category.debugLogger=TRACE, debugLog
+#log4j.appender.debugLogger.Threshold=TRACE
+log4j.additivity.debugLogger=false
+
+#log4j.category.reportsLogger=DEBUG, reportsLog
+#log4j.appender.reportsLogger.Threshold=DEBUG
+#log4j.additivity.reportsLogger=false
+
+###############################################################
+##########################Dependencies#########################
+###############################################################
+
+#Dependencies For Dal
+dal.services.DalBackendServices=dal.services.DalServicesStub
+
+#Dependencies For BizFactory
+business.factories.BizFactory=business.factories.BizFactoryStub
+
+#Dependencies For UtilisateurUcc
+dal.dao.interfaces.UtilisateurDao=dal.dao.stubs.UtilisateurDaoStub
+business.ucc.interfaces.UtilisateurUcc=business.ucc.stubs.UtilisateurUccStub
+
+#Dependencies For JourneeUcc
+dal.dao.interfaces.JourneeDao=dal.dao.stubs.JourneeDaoStub
+business.ucc.interfaces.JourneeUcc=business.ucc.stubs.JourneeUccStub
+
+#Dependencies For EntrepriseUcc
+dal.dao.interfaces.EntrepriseDao=dal.dao.stubs.EntrepriseDaoStub
+business.ucc.interfaces.EntrepriseUcc=business.ucc.stubs.EntrepriseUccStub
+
+#Dependencies For PersonneContactUcc
+dal.dao.interfaces.PersonneContactDao=dal.dao.stubs.PersonneContactDaoStub
+business.ucc.interfaces.PersonneContactUcc=business.ucc.stubs.PersonneContactUccStub
+
+#Dependencies For ParticipationUcc
+dal.dao.interfaces.ParticipationDao=dal.dao.stubs.ParticipationDaoStub
+business.ucc.interfaces.ParticipationUcc=business.ucc.stubs.ParticipationUccStub
+
+#Dependencies For PresenceUcc
+dal.dao.interfaces.PresenceDao=dal.dao.stubs.PresenceDaoStub
+business.ucc.interfaces.PresenceUcc=business.ucc.stubs.PresenceUccStub
+
+###############################################################
+###################Dispatching Action Servlet-IHM##########################
+###############################################################
+
+
+######UtilisateurIhm######
+connecterUtilisateurIhm=utilisateurIhm
+inscrireUtilisateurIhm=utilisateurIhm
+estConnecteIhm=utilisateurIhm
+deconnecterUtilisateurIhm=utilisateurIhm
+
+######JourneeIhm######
+creerJourneeIhm=journeeIhm
+getJourneesIhm=journeeIhm
+verifierJourneeActuelleIhm=journeeIhm
+
+######EntrepriseIhm######
+creerEntrepriseIhm=entrepriseIhm
+afficherEntreprisesIhm=entrepriseIhm
+chargerEntrepriseIhm=entrepriseIhm
+modifierEntrepriseIhm=entrepriseIhm
+historiqueParticipationsIhm=entrepriseIhm
+
+######PersonneContactIhm######
+creerPersonneContactIhm=personneContactIhm
+afficherContactsIhm=personneContactIhm
+chargerContactIhm=personneContactIhm
+modifierContactIhm=personneContactIhm
+desactiverContactIhm=personneContactIhm
+
+#####ParticipationIhm######
+getEntreprisesMoinsQuatreAnsIhm=participationIhm
+getEntreprisesNouvellesIhm=participationIhm
+invitationIhm=participationIhm
+selectionEntreprisesIhm=participationIhm
+entreprisesNonSelectionneesIhm=participationIhm
+entreprisesInviteesIhm=participationIhm
+annulerParticipationIhm=participationIhm
+participationsNonAnnuleesIhm=participationIhm
+modifierParticipationIhm=participationIhm
+
+#####PresenceIhm#####
+indiquerPresenceIhm=presenceIhm
+listerContactsParEntrepriseIhm=presenceIhm
+
+###############################################################
+###################Droits Action Servlet-IHM##########################
+###############################################################
+
+
+######UtilisateurDroits######
+deconnecterUtilisateurDroits=auth
+
+######JourneeDroits######
+creerJourneeDroits=auth
+getJourneesDroits=auth
+verifierJourneeActuelleDroits=auth
+
+######EntrepriseDroits######
+creerEntrepriseDroits=auth
+afficherEntreprisesDroits=auth
+chargerEntrepriseDroits=auth
+modifierEntrepriseDroits=auth
+
+######PersonneContactDroits######
+creerPersonneContactDroits=auth
+afficherContactsDroits=auth
+chargerContactDroits=auth
+modifierContactDroits=auth
+desactiverContactDroits=auth
+
+#####ParticipationDroits######
+selectionEntreprisesDroits=responsable
+entreprisesNonSelectionneesDroits=responsable
+invitationDroits=responsable
+entreprisesInviteesDroits=responsable
+annulerParticipationDroits=auth
+participationsNonAnnuleesDroits=auth
+modifierParticipationDroits=auth
+
+#####PresenceDroits#####
+indiquerPresenceDroits=responsable
+listerContactsParEntrepriseDroits=responsable
+
+
+###############################################################
+##############################JWT##############################
+###############################################################
+
+
+#Config JWT
+jwt_secret=CeciSeraNotrePlusMerveilleuxSecret
+
+###############################################################
+##############################SQL##############################
+###############################################################
+
+
+#Config Connection Pool
+driverClassName=org.postgresql.Driver
+url=jdbc:postgresql://studentittools.ipl.be:5432/dbrachid_asli
+username=rachid_asli
+password=Mimi_210
+schema=pae
+
+#Path For init.sql
+initFile=sql/init.sql
+
+#Queries For EntrepriseDao
+insererEntreprise=INSERT INTO pae.entreprises VALUES(DEFAULT,?,?,current_timestamp,NULL,?,?,?,?,?,0) returning id_entreprise;
+findEntrepriseByNom=SELECT * FROM pae.entreprises WHERE lower(nom_entreprise)=lower(?);
+affichageEntreprises=SELECT * FROM pae.entreprises;
+findEntrepriseById=SELECT * FROM pae.entreprises WHERE id_entreprise=?;
+afficherEntrMoinsQuatreAns=SELECT * FROM pae.entreprises WHERE date_derniere_participation_paye>(NOW()-INTERVAL '4 YEAR');
+afficherNouvellesEntreprises=SELECT * FROM pae.entreprises WHERE DATE_PART ('year',date_creation)=DATE_PART ('year', NOW());
+preselectionEntreprises=(SELECT * FROM pae.entreprises WHERE (date_derniere_participation_paye>(NOW()-INTERVAL '4 YEAR'))) UNION (SELECT * FROM pae.entreprises WHERE date_creation IS NOT NULL AND DATE_PART ('year',date_creation)=DATE_PART ('year', NOW()));
+modificationEntreprise=UPDATE pae.entreprises SET nom_entreprise=?,rue=?,numero=?,boite=?,code_postal=?,commune=?,num_version=(num_version+1) WHERE id_entreprise=? AND num_version=? RETURNING id_entreprise;
+findEntrepriseNonSelectionnees=SELECT * FROM pae.entreprises where id_entreprise NOT IN(SELECT id_entreprise FROM pae.participations WHERE id_journee=?);
+findEntreprisesInvitees=SELECT * FROM pae.entreprises WHERE id_entreprise IN( SELECT id_entreprise FROM pae.participations WHERE id_journee=?);
+modifierDatePaye=UPDATE pae.entreprises SET date_derniere_participation_paye=?,num_version=(num_version+1) WHERE id_entreprise=? AND num_version=? RETURNING id_entreprise;
+
+#Queries For JourneeDao
+creationJournee=INSERT INTO pae.journees VALUES(DEFAULT,?,date(?),false,DEFAULT) returning id_journee;
+cloturerJournees=UPDATE pae.journees SET cloturee=true;
+findJournees=SELECT * FROM pae.journees;
+findJourneeByDate=SELECT * FROM pae.journees WHERE date_je=date(?);
+findJourneeActive=SELECT * FROM pae.journees WHERE cloturee=false;
+findJourneeById=SELECT * FROM pae.journees WHERE id_journee=?;
+
+#Queries For ParticipationDao
+insererParticipation=INSERT INTO pae.participations VALUES(DEFAULT,?,?,'invitee',?,?,0) returning id_participation;
+findParticipationByIdJourneeIdEntreprise=SELECT * FROM pae.participations WHERE id_journee=? AND id_entreprise=? AND annulee=FALSE;
+findParticipationByIdEntreprise=SELECT * FROM pae.participations WHERE id_entreprise=? ORDER BY id_journee;
+annulerParticipation=UPDATE pae.participations SET annulee=TRUE,num_version=(num_version+1) WHERE id_participation=? AND num_version=? AND annulee=false RETURNING id_participation;
+participationsNonAnnulees=SELECT p.* FROM pae.participations p WHERE p.annulee = FALSE and p.id_journee=?;
+modifierParticipation=UPDATE pae.participations SET etat=?,evolution=?,num_version=(num_version+1) WHERE id_participation=? AND num_version=? AND annulee=false RETURNING id_participation;
+
+#Queries For PersonneContactDao
+InsererPersonneContact=INSERT INTO pae.personnes_contact VALUES(DEFAULT,?,?,?,?,?,TRUE,0)returning id_personne;
+FindPersonneByMail=SELECT * FROM pae.personnes_contact WHERE email=? and actif=true;
+affichageContacts=SELECT * FROM pae.personnes_contact WHERE actif=true;
+FindPersonneByTelephone=SELECT * FROM pae.personnes_contact WHERE telephone=? and actif=true;
+modifierPersonneContact=UPDATE pae.personnes_contact SET nom=?,prenom=?,email=?,telephone=?,num_version=(num_version+1) WHERE id_personne=? AND num_version=? AND actif=true RETURNING id_personne;
+findPersonneById=SELECT * FROM pae.personnes_contact WHERE id_personne=? AND actif=true;
+desactiverPersonne=UPDATE pae.personnes_contact SET actif=false WHERE id_personne=? AND actif = true RETURNING id_personne;
+findPersonneByIdEntreprise=SELECT * FROM pae.personnes_contact WHERE id_entreprise=? AND actif=true;
+
+#Queries For PresenceDao
+findPresenceByIdParticipationIdPersonne=SELECT * FROM pae.presences WHERE id_participation=? AND id_personne=?;
+insererPresence=INSERT INTO pae.presences VALUES(?,?,0) returning id_personne;
+
+#Queries For UtilisateurDao
+inscrireUtilisateur=INSERT INTO pae.utilisateurs VALUES(DEFAULT,?,?,?,?,current_timestamp,?,?,DEFAULT,0,current_timestamp) returning id_utilisateur;
+findUtilisateurByPseudo=SELECT * FROM pae.utilisateurs WHERE pseudo=?;
+findUtilisateurByEmail=SELECT * FROM pae.utilisateurs WHERE email=?;
+findUtilisateurById=SELECT * FROM pae.utilisateurs where id_utilisateur =?;
+resetTentatives=UPDATE pae.utilisateurs SET nb_tentatives_connexions = 0 WHERE pseudo = ? RETURNING nb_tentatives_connexions;
+majTentatives=UPDATE pae.utilisateurs SET nb_tentatives_connexions = nb_tentatives_connexions+1, date_derniere_tentative = current_timestamp WHERE pseudo = ? RETURNING date_derniere_tentative;
+
+#Queries For Backup
+backupUtilisateurs=SELECT u.* FROM pae.utilisateurs u ORDER BY u.id_utilisateur ASC;
+backupEntreprises=SELECT e.* FROM pae.entreprises e ORDER BY e.id_entreprise ASC;
+backupPersonnes_Contact=SELECT pc.* FROM pae.personnes_contact pc ORDER BY pc.id_personne ASC;
+backupJournees=SELECT j.* FROM pae.journees j ORDER BY j.id_journee ASC;
+backupParticipations=SELECT p.* FROM pae.participations p ORDER BY p.id_participation ASC;
+backupPresences=SELECT p.* FROM pae.presences p ORDER BY (p.id_participation,id_personne) ASC;

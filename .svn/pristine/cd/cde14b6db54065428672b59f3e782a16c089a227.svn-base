@@ -1,0 +1,460 @@
+<div id="annuaire">
+	<div class="row">
+		<div class="col-lg-12 main-chart">
+			<div class="content-panel">
+				<table class="table table-striped table-advance table-hover" cellspacing="0" width="100%"
+				id="tableEntreprises">
+				<div class="row">
+					<div class="col-md-3">
+						<h4>
+							<i class="fa fa-angle-right"></i> Entreprises
+						</h4>
+					</div>
+					<div class="col-md-2 col-md-offset-7">
+						<div class="form-group">
+							<input type="text" id="rechercheEntreprise"
+							placeholder="Rechercher..." class="form-control" />
+						</div>
+					</div>
+				</div>
+				
+				<thead>
+					<tr>
+						<th><i class="fa fa-bullhorn"></i> Société</th>
+						<th class="hidden-phone"><i class="fa fa-question-circle"></i> Adresse</th>
+						<th><i class="fa fa-bookmark"></i> Date création</th>
+						<th><i class=" fa fa-edit"></i> Edition/Infos</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<!-- /content-panel -->
+	</div>
+	<!-- /col-md-12 -->
+</div>
+<br>
+<div class="row">
+	<div class="col-md-8">
+		<button type="button" class="btn btn-theme" id="addCompany"
+		data-toggle="modal" data-target="#modalAddCompany">
+		<i class="fa fa-plus"></i> Ajouter une société
+	</button>
+</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12 main-chart">
+		<div class="content-panel">
+			<table class="table table-striped table-advance table-hover" cellspacing="0" width="100%"
+			id="tableContacts">
+			<div class="row">
+				<div class="col-md-3">
+					<h4>
+						<i class="fa fa-angle-right"></i> Contacts
+					</h4>
+				</div>
+				<div class="col-md-2 col-md-offset-7">
+					<div class="form-group">
+						<input type="text" id="rechercheContact"
+						placeholder="Rechercher..." class="form-control" />
+					</div>
+				</div>
+			</div>
+			
+			<thead>
+				<tr>
+					<th><i class='fa fa-user'></i> Nom</th>
+					<th><i class='fa fa-user'></i> Prénom</th>
+					<th><i class='fa fa-envelope'></i> Email</th>
+					<th><i class='fa fa-phone'></i> Téléphone</th>
+					<th><i class="fa fa-building"></i> Société</th>
+					<th><i class=" fa fa-edit"></i> Edition</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<!-- /content-panel -->
+</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-8">
+		<button type="button" class="btn btn-theme02" id="addContact"
+		data-toggle="modal" data-target="#modalAddContact">
+		<i class="fa fa-plus"></i> Ajouter un contact
+	</button>
+</div>
+</div>
+
+<!-- HIDDEN COMPANY FORM -->
+<div aria-hidden="true" aria-labelledby="company_add" role="dialog"
+tabindex="-1" id="modalAddCompany" class="modal fade">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Création d'une société</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div id="notificationCreationEntreprise"
+				class="alert alert-danger" style="margin: 15px;">
+				<b>Erreur.</b> Veillez à remplir tous les champs avant de
+				réessayer.
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Nom </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="nomEntreprise"
+					autofocus maxlength="150">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Rue </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="rue"
+					maxlength="150">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Boite </label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" name="boite"
+					maxlength="10" placeholder="(Facultatif)">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Numéro </label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" name="numero"
+					maxlength="10">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Code postal </label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" name="codePostal"
+					maxlength="10">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Commune </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="commune"
+					maxlength="75">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="row">
+			<div class="col-md-6">
+				<button class="btn btn-theme btn-block" type="submit"
+				id="modalAddCompany_submit">Créer</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn btn-theme btn-block" type="submit"
+				id="modalAddCompany_reset">Réinitialiser</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<!-- END OF HIDDEN COMPANY FORM -->
+</div>
+
+<!-- HIDDEN CONTACT FORM -->
+<div aria-hidden="true" aria-labelledby="contact_add" role="dialog"
+tabindex="-1" id="modalAddContact" class="modal fade">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Création d'un contact</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div id="notificationCreationContact" class="alert alert-danger"
+				style="margin: 15px;">
+				<b>Erreur.</b> Veillez à remplir tous les champs avant de
+				réessayer.
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Nom </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" autofocus name="nom"
+					maxlength="100">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Prénom </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="prenom"
+					maxlength="100">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Email </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="email"
+					maxlength="100">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Téléphone </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="telephone"
+					maxlength="15" placeholder="Pas de séparateur (ex : 0478264531)">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Société </label>
+				<div class="col-sm-9">
+					<select class="form-control" name="entrepriseContact">
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="row">
+			<div class="col-md-6">
+				<button class="btn btn-theme btn-block"
+				id="modalAddContact_submit">Créér</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn btn-theme btn-block" id="modalAddContact_reset">Réinitialiser</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<!-- END OF HIDDEN CONTACT FORM -->
+
+<!-- HIDDEN UPDATE CONTACT FORM -->
+<div aria-hidden="true" aria-labelledby="contact_update" role="dialog" tabindex="-1" id="modalUpdateContact" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Edition d'un contact</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div id="notificationUpdateContact" class="alert alert-danger"
+					style="margin: 15px;">
+					<b>Erreur.</b> Veillez à remplir tous les champs avant de
+					réessayer.
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Nom </label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" autofocus name="nom">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Prénom </label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="prenom">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Email </label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="email">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Téléphone </label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="telephone">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-md-6">
+					<button class="btn btn-theme btn-block"
+					id="modalUpdateContact_submit">Sauvegarder</button>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-theme04 btn-block"
+					id="modalUpdateContact_desactivate">Désactiver</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!-- END OF HIDDEN CONTACT FORM -->
+
+<!-- HIDDEN UPDATE COMPANY FORM -->
+<div aria-hidden="true" aria-labelledby="company_update" role="dialog"
+tabindex="-1" id="modalUpdateCompany" class="modal fade">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Edition d'une société</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div id="notificationUpdateCompany" class="alert alert-danger"
+				style="margin: 15px;">
+				<b>Erreur.</b> Veillez à remplir tous les champs avant de
+				réessayer.
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Nom </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" autofocus
+					name="nomEntreprise">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Rue </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="rue">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Boite </label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control"
+					placeholder="(Facultatif)" name="boite">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Numéro </label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" name="numero">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Code postal </label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" name="codePostal">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Commune </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" name="commune">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-theme btn-block"
+		id="modalUpdateCompany_submit">Sauvegarder</button>
+	</div>
+</div>
+</div>
+</div>
+<!-- END OF HIDDEN COMPANY FORM -->
+
+<!-- HIDDEN INFO COMPANY BOITE -->
+<div aria-hidden="true" aria-labelledby="company_info" role="dialog" tabindex="-1" id="modalInfoCompany" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Informations sur la société</h4>
+			</div>
+			<div class="modal-body">
+				<div id="modal-container" style="max-height: 300px; overflow: auto">
+					<h5>
+						<i class="fa fa-angle-right"></i> Participations
+					</h5>
+					<table class="table table-bordered table-striped table-condensed">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th class="numeric">Etat</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>01/01/0001</td>
+								<td class="numeric"><span
+									class="label label-success label-mini">Payée</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END HIDDEN INFO COMPANY BOITE -->

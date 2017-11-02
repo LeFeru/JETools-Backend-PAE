@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="dbrachid_asli@studentittools.ipl.be" uuid="24b85bc1-a140-481d-8ebf-ffe090bd434f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://studentittools.ipl.be:5432/dbrachid_asli</jdbc-url>
+    </data-source>
+  </component>
+</project>

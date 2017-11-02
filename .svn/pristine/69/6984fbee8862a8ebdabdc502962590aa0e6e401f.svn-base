@@ -1,0 +1,194 @@
+<!-- Dbut page invitations -->
+<div id="invitations">
+
+	<div class="row">
+		<div class="col-lg-12 main-chart">
+			<div class="content-panel">
+			
+				<!-- Debut table des préselctions -->
+				<table class="table table-striped table-advance table-hover"
+					cellspacing="0" width="100%" id="tableEntreprises-invitations">
+					<div class="row">
+						<div class="col-md-5">
+							<h4 class="mb">
+								<i class="fa fa-angle-right"></i> Entreprises préselectionnées
+							</h4>
+						</div>
+						<div class="col-md-2 col-md-offset-5">
+							<div class="form-group">
+								<input type="text" id="rechercheEntreprise-invitations"
+									placeholder="Filtrer..." class="form-control" />
+							</div>
+						</div>
+					</div>
+					
+					<thead>
+						<tr>
+							<th><i class="fa fa-bullhorn"></i> Société</th>
+							<th class="hidden-phone"><i class="fa fa-question-circle"></i> Adresse</th>
+							<th><i class="fa fa-bookmark"></i> Date création</th>
+							<th onclick="invitations.checkAllInputForTableEntreprises();"><i
+								class=" fa fa-check-square-o"></i> Selection</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<!-- Fin table des préselections -->
+
+
+				<!-- HIDDEN COMPANY TABLE -->
+				<div aria-hidden="true" aria-labelledby="company_info" role="dialog"
+					tabindex="-1" id="notSelectedCompany" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+						
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Sociétés non préselectionnées</h4>
+							</div>
+							<div class="modal-body">
+								<div id="modal-container"
+									style="max-height: 500px; width: 100%; overflow-x: hidden;">
+									<div class="row">
+										<div id="notificationAjoutEntreprise"
+											class="alert alert-success" style="margin: 15px;"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-5 col-md-offset-0">
+											<div class="form-group">
+												<input type="text" id="rechercheEntrepriseNonSelectionnee"
+													placeholder="Filtrer..." class="form-control" />
+											</div>
+										</div>
+									</div>
+									<!-- Debut table des entreprises non selectionnees -->
+									<table class="table table-striped table-advance table-hover"
+										cellspacing="0" id="tableEntreprisesNonSelectionnees">
+										<thead>
+											<tr>
+												<th><i class="fa fa-bullhorn"></i> Société</th>
+												<th class="hidden-phone"><i
+													class="fa fa-question-circle"></i> Adresse</th>
+												<th><i class="fa fa-bookmark"></i> Date création</th>
+												<th><i class=" fa fa-check-square-o"></i> Selection</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+									<!-- Fin table des entreprises non selectionnees -->
+								</div>
+
+								<div class="modal-footer">
+									<div class="row">
+										<div class="col-md-12">
+											<button class="btn btn-theme btn-block" type="submit"
+												id="addToPreselection">Ajouter à la préselection</button>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END HIDDEN COMPANY TABLE -->
+
+			</div>
+		</div>
+	</div>
+
+	<div class="row" id="rowButtons" style="margin-top: 15px;">
+		<div class="col-md-8">
+			<button type="button" class="btn btn-theme" id="exportList">
+				<i class="fa fa-check"></i> Exporter la liste
+			</button>
+			<button type="button" class="btn btn-theme02"
+				id="ajouterEntreprisesNonSelectionnees" data-toggle="modal"
+				data-target="#notSelectedCompany">
+				<i class="fa fa-plus"></i> Ajouter des entreprises
+			</button>
+		</div>
+	</div>
+
+	<div class="row" id="rowTablesEntreprisesInvitees" style="display:none">
+		<div class="col-lg-12 main-chart">
+			<div class="content-panel">
+
+				<!-- Debut table des entreprises invitées -->
+				<table class="table table-striped table-advance table-hover"
+					cellspacing="0" width="100%" id="tableEntreprisesInvitees">
+					<div class="row">
+						<div class="col-md-5">
+							<h4 class="mb">
+								<i class="fa fa-angle-right"></i> Entreprises invitées
+							</h4>
+						</div>
+						<div class="col-md-2 col-md-offset-5">
+							<div class="form-group">
+								<input type="text" id="rechercheEntrepriseInvitees"
+									placeholder="Filtrer..." class="form-control" />
+							</div>
+						</div>
+					</div>
+					
+					<thead>
+						<tr>
+							<th><i class="fa fa-bullhorn"></i> Société</th>
+							<th class="hidden-phone"><i class="fa fa-question-circle"></i> Adresse</th>
+							<th><i class="fa fa-bookmark"></i> Date création</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<!-- Fin table des entreprises invitées -->
+
+			</div>
+		</div>
+	</div>
+
+	<div class="row" id="rowButtons2" style="display: none; margin-top: 15px;">
+		<div class="col-md-8">
+			<button type="button" class="btn btn-theme04" id="exportCompleteList">
+				<i class="fa fa-check"></i> Exporter la liste intégrale
+			</button>
+		</div>
+	</div>
+
+</div>
+<!-- FIN page invitations -->
+
+<!-- Debut fenetre contextuelle -->
+<div id="contextualWindow"
+	style="padding: 10px; width: 430px; max-height: 250px; overflow: auto; max-width: 430px; border: 0px solid white; border-radius: 2px; box-shadow: 0px 0px 10px black; margin-left: 0px; position: absolute; z-index: 30000; display: none; top: 0px; left: 0px; background-color: #F8F8F8; color: black;">
+	<div id="containerNotif" style="display: none">L'entreprise n'a
+		aucune participation.</div>
+	<div id="containerImageLoading" style="text-align: center">
+		<img src="../theme/img/loading3.gif" />
+	</div>
+	<div id="containerTable" style="display: none">
+		<table>
+			<thead>
+				<h5>
+					<i class="fa fa-angle-right"></i> Participations
+				</h5>
+				<table class="table table-bordered table-striped table-condensed">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Etat</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- FIN fenetre contextuelle -->
